@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Facturas Emitidas</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="factura-d"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="Diseño" *ngFor="let fac of listaFactura">
+    <ion-card-header>
+      <ion-card-title>Numero:{{fac.id}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-icon name="person"></ion-icon>
+      Cliente: {{fac.cliente.nombre}}
+      <br>
+      <ion-icon name="finger-print"></ion-icon>
+      C.I: {{fac.cliente.identificacionNumero}}
+      <br>
+      <ion-icon name="calendar"></ion-icon>
+      Fecha : {{fac.fechaDeEmision}}
+      <br>
+      <ion-icon name="cash"></ion-icon>
+      Total : {{fac.total}}
+    </ion-card-content>
+  </ion-card>
+</ion-content>

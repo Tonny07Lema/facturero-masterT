@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Actualizar Servicio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <form [formGroup]="ServicioUpdateForm" (ngSubmit)="ActualizarServicio()">
+      <ion-row>
+        <ion-col>
+          <ion-list>
+            <ion-item>
+              <ion-icon name="reader"></ion-icon>
+              <ion-input formControlName="descripcion" id="descripcion" type="text" required
+                placeholder="Descripcion del Servicio*"></ion-input>
+            </ion-item>
+            <br />
+            <ion-item>
+              <ion-icon name="cash"></ion-icon>
+              <ion-input formControlName="precioUnitario" id="precioUnitario" type="number" step="0.01" required placeholder="Precio Unitario *"></ion-input>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" expand="block">Actualizar</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" expand="block" (click)="regresar()">Regresar</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="grid1">
+    <ion-row class="row1">
+      <ion-col>
+      </ion-col>
+    </ion-row>
+    <ion-row class="row2">
+      <ion-col>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-slide>
+    <div class="contaier-login">
+      <ion-grid>
+        <form [formGroup]="userLoginForm" (ngSubmit)="loginp()">
+        <ion-row>
+          <ion-col>
+            <h1>Iniciar Sesión</h1>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-list>
+              
+                <ion-item>
+                  <ion-icon name="person" class="icon-login"></ion-icon>
+                  <ion-input formControlName="username" id="username" name="user" type="text" required
+                    placeholder="Usuario *"></ion-input>
+                </ion-item>
+                <br />
+                <ion-item>
+                  <ion-icon name="lock-open"></ion-icon>
+                  <ion-input formControlName="password" id="password" name="password" type="password" required
+                    placeholder="Contraseña *"></ion-input>
+                </ion-item>
+              
+            </ion-list>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button type="submit" fill="solid" expand="full">
+              Entrar
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-label>
+              <h5>¿No tienes cuenta? <a href="/register">Registrarse</a></h5>
+            </ion-label>
+          </ion-col>
+        </ion-row>
+      </form>
+      </ion-grid>
+    </div>
+  </ion-slide>
+
+</ion-content>

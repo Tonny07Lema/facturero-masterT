@@ -1,0 +1,74 @@
+ion-card.Diseño {
+    border-radius: 22px;
+    box-shadow: rgb(34 36 40) 0px 3px 1px -2px, rgb(34 36 40) 0px 3px 1px -2px, rgb(34 36 40) 0px 0px 9px 1px;
+}
+
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+
+    height: 170px;
+    width: 400px;
+
+    margin: 0 auto;
+}
+
+b {
+    width: 100%;
+}
+
+.ripple-parent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    overflow: hidden;
+
+    border: 1px solid #ddd;
+
+    user-select: none;
+
+    width: 100%;
+    height: 50px;
+    border-radius: 8px;
+}
+
+.custom-parent {
+    color: #000000;
+    background-color: #0184ff;
+}
+
+.custom-ripple {
+    color: #000000;
+    background-color: #fe2727;
+}
+
+.custom-rippl {
+    color: #000000;
+    background-color: #00f9a2;
+}
+ion-app.force-statusbar-padding {
+    --ion-safe-area-top: 2px;
+}
+ion-title.Titulo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+ion-menu::part(backdrop) {
+    background-color: rgba(0, 136, 255, 0.5);
+}
+
+ion-menu::part(container) {
+    border-radius: 0 20px 20px 0;
+    max-width: 80%;
+    box-shadow: 4px 0px 16px rgba(3, 150, 255, 0.18);
+}

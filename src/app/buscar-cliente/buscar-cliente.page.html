@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>buscarCliente</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="cliente-d"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="buscarRegisterForm" (ngSubmit)="BuscarCedula()">
+    <ion-input formControlName="identificacionNumero" id="identificacionNumero" type="text" required
+      placeholder="Numero de Identificacion *"></ion-input>
+    <ion-button type="submit" expand="block">Buscar</ion-button>
+  </form>
+  <ion-card class="Diseño" *ngIf="cardCliente == true">
+    <ion-card-header>
+      <ion-card-title>{{EncontradoRegisterForm.value.nombre}}</ion-card-title>
+      <ion-card-subtitle>{{EncontradoRegisterForm.value.tipoIdentificacion}}</ion-card-subtitle>
+      <ion-card-subtitle>{{EncontradoRegisterForm.value.identificacionNumero}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-icon name="map"></ion-icon>
+      Direccion: {{EncontradoRegisterForm.value.direccion}}
+      <br>
+      <ion-icon name="call"></ion-icon>
+      Telefono: {{EncontradoRegisterForm.value.telefono}}
+      <br>
+      <ion-icon name="mail"></ion-icon>
+      Correo: {{EncontradoRegisterForm.value.correoElectronico}}
+    </ion-card-content>
+  </ion-card>
+</ion-content>

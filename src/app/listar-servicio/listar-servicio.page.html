@@ -1,0 +1,85 @@
+<ion-content>
+  <ion-app>
+    <ion-menu contentId="main-content">
+      <ion-header>
+        <ion-toolbar color="tertiary">
+          <ion-title class="Titulo">Menu</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-list>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item [routerDirection]="'root'" [routerLink]="'/listar-cliente'">
+              <ion-icon slot="start" [name]="'person'"></ion-icon>
+              <ion-label>
+                Cliente
+              </ion-label>
+            </ion-item>
+            <ion-item [routerDirection]="'root'" [routerLink]="'/listar-servicio'">
+              <ion-icon slot="start" [name]="'bag'"></ion-icon>
+              <ion-label>
+                Servicio
+              </ion-label>
+            </ion-item>
+            <ion-item [routerDirection]="'root'" [routerLink]="'/listar-factura'">
+              <ion-icon slot="start" [name]="'reader'"></ion-icon>
+              <ion-label>
+                Factura
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <div class="ion-page" id="main-content">
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+          <ion-title class="Titulo">Lista de Servicios</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-card class="Diseño" *ngFor="let ser of listaSerivicio">
+          <ion-card-header>
+            <ion-card-title>{{ser.descripcion}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-icon name="cash"></ion-icon>
+            Precio: {{ser.precioUnitario}}
+          </ion-card-content>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <div class="ion-activatable ripple-parent custom-parent" (click)="actualizarServicio(ser.id)">
+                  Editar
+                  <ion-ripple-effect></ion-ripple-effect>
+                </div>
+              </ion-col>
+              <ion-col>
+                <div class="ion-activatable ripple-parent custom-ripple" (click)="eliminarServicio(ser.id)">
+                  Eliminar
+                  <ion-ripple-effect></ion-ripple-effect>
+                </div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <div class="ion-activatable ripple-parent custom-rippl" (click)="agregarC(ser)">
+                Agregar a Factura
+                <ion-ripple-effect></ion-ripple-effect>
+              </div>
+            </ion-row>
+          </ion-grid>
+        </ion-card>
+        <ion-fab slot="fixed" vertical="bottom" horizontal="end" style="bottom: 59px;">
+          <ion-fab-button>
+            <ion-icon name="add" [routerDirection]="'root'" [routerLink]="'/registrar-servicio'"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
+      </ion-content>
+    </div>
+  </ion-app>
+
+
+</ion-content>

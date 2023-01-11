@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Guardar Factura</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="listar-servicio"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <label name="name" type="text">Fecha {{fechaActual  | date: 'dd/MM/yyyy'}}</label>
+ </ion-item>
+  <form [formGroup]="buscarCliente" (ngSubmit)="BuscarCedula()">
+    <ion-input formControlName="identificacionNumero" id="identificacionNumero" type="text" required
+      placeholder="Numero de Identificacion *"></ion-input>
+    <ion-button type="submit" expand="block">Buscar</ion-button>
+  </form>
+  <ion-card class="Diseño" *ngIf="cardCliente == true">
+    <ion-card-header>
+      <ion-card-title>{{EncontradoRegisterForm.value.nombre}}</ion-card-title>
+      <ion-card-subtitle>{{EncontradoRegisterForm.value.tipoIdentificacion}}</ion-card-subtitle>
+      <ion-card-subtitle>{{EncontradoRegisterForm.value.identificacionNumero}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-icon name="map"></ion-icon>
+      Direccion: {{EncontradoRegisterForm.value.direccion}}
+      <br>
+      <ion-icon name="call"></ion-icon>
+      Telefono: {{EncontradoRegisterForm.value.telefono}}
+      <br>
+      <ion-icon name="mail"></ion-icon>
+      Correo: {{EncontradoRegisterForm.value.correoElectronico}}
+    </ion-card-content>
+  </ion-card>
+            <ion-grid>
+            <ion-row>
+              <ion-col>Cant.</ion-col>
+              <ion-col>Id.P</ion-col>
+              <ion-col>P.Unitario</ion-col>
+              <ion-col>V.Total</ion-col>
+            </ion-row>
+            <ion-row *ngFor="let productos of detalles">
+              <ion-col>{{productos.cantidad}}</ion-col>
+              <ion-col>{{productos.servicioId}}</ion-col>
+              <ion-col>{{productos.precioUnitario}}</ion-col>
+              <ion-col>{{productos.total}}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col></ion-col>
+              <ion-col></ion-col>
+              <ion-col>SubTotal</ion-col>
+              <ion-col>{{subtotal}}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col></ion-col>
+              <ion-col>Iva.</ion-col>
+              <ion-col>12%</ion-col>
+              <ion-col>{{impuesto2}}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col></ion-col>
+              <ion-col></ion-col>
+              <ion-col>Total</ion-col>
+              <ion-col>{{totales}}</ion-col>
+            </ion-row>
+          </ion-grid>
+          <ion-button type="submit" expand="block" (click)="facturar()">Registrar</ion-button>
+</ion-content>

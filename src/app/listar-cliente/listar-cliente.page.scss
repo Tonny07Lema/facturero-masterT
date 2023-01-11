@@ -1,0 +1,95 @@
+$colors:(
+    verde : rgb(81, 255, 0)
+);
+
+ion-card.Diseño {
+    border-radius: 22px;
+    box-shadow: rgb(34 36 40) 0px 3px 1px -2px, rgb(34 36 40) 0px 3px 1px -2px, rgb(34 36 40) 0px 0px 9px 1px;
+}
+ion-icon.Editar{
+    font-size: 21px;
+    padding-inline-start: var(--ion-grid-column-padding-xs, var(--ion-grid-column-padding, 37px))
+}
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+
+    height: 170px;
+    width: 400px;
+
+    margin: 0 auto;
+}
+
+b {
+    width: 100%;
+}
+
+.ripple-parent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    overflow: hidden;
+
+    border: 1px solid #ddd;
+
+    user-select: none;
+
+    width: 100%;
+    height: 50px;
+    border-radius: 8px;
+}
+
+.custom-parent {
+    color: #000000;
+    background-color: #0184ff;
+}
+
+.custom-ripple {
+    color: #000000;
+    background-color: #fe2727;
+}
+ion-app.force-statusbar-padding {
+    --ion-safe-area-top: 2px;
+}
+ion-title.Titulo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 103%;
+  height: 100%;
+  text-align: center;
+}
+ion-menu::part(backdrop) {
+    background-color: rgba(0, 136, 255, 0.5);
+}
+
+ion-menu::part(container) {
+    border-radius: 0 20px 20px 0;
+    max-width: 80%;
+    box-shadow: 4px 0px 16px rgba(3, 150, 255, 0.18);
+}
+ion-col {
+    background-color: #f3f3f3;
+    border: solid 1px #fff;
+    color: #fff;
+    text-align: center;
+}
+/* iOS places the subtitle above the title */
+ion-card-header.ios {
+    display: flex;
+    flex-flow: column-reverse;
+}
+ion-button.info{
+    height: 100px;
+    font-size: 0px;
+    --background: #fdfeff;
+}
+a.texto{
+    font-size: 11px;
+}
