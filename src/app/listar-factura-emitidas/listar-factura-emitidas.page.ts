@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FacturaService } from '../api/factura.service';
-import { ToastController } from '@ionic/angular';
+import { ModalController, ToastController } from '@ionic/angular';
+import { Factura } from '../entidades';
+import { DetalleFacturaPage } from '../detalle-factura/detalle-factura.page';
 
 @Component({
   selector: 'app-listar-factura-emitidas',
@@ -13,6 +15,7 @@ export class ListarFacturaEmitidasPage implements OnInit {
   constructor(
     private facturaService: FacturaService,
     private toastController: ToastController,
+    private modalCtrl: ModalController,
   ) { }
 
   ngOnInit() {
@@ -24,5 +27,15 @@ export class ListarFacturaEmitidasPage implements OnInit {
       console.log(this.IdUser);
       this.listaFactura = data;
     })
+  }
+  async detallefac(factura:Factura) {
+    const modal = await this.modalCtrl.create({
+      component: DetalleFacturaPage,
+      componentProps: {
+        'detalle': factura,
+      }
+    });
+    await modal.present();
+    await modal.onDidDismiss();
   }
 }

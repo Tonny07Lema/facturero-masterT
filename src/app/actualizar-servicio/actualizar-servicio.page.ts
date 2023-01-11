@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastController,ModalController } from '@ionic/angular';
 import { ServicioService } from '../api/servicio.service';
+import { Servicio } from '../entidades';
 
 @Component({
   selector: 'app-actualizar-servicio',
@@ -10,7 +11,9 @@ import { ServicioService } from '../api/servicio.service';
   styleUrls: ['./actualizar-servicio.page.scss'],
 })
 export class ActualizarServicioPage implements OnInit {
-  @Input() idCliente: undefined;
+  @Input() servicioUp: any;
+  servicioUpdate = new Servicio;
+  
   ServicioUpdateForm : FormGroup = this.fb.group({     
     'descripcion' : ['', [Validators.required]],
     'precioUnitario' : ['', [Validators.required]],
@@ -24,6 +27,7 @@ export class ActualizarServicioPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.servicioUpdate = this.servicioUp;
   }
   regresar() {
     this.modalCtrl.dismiss();
@@ -32,7 +36,7 @@ export class ActualizarServicioPage implements OnInit {
     if (!this.ServicioUpdateForm.valid) {
       this.mostrarMensaje("Ingrese datos");
     } else {
-      this.ServicioUpdateForm.value.id = this.idCliente;
+      this.ServicioUpdateForm.value.id = this.servicioUpdate.id;
       this.sevicioService.actualizar(this.ServicioUpdateForm.value).subscribe(
         (data) => {
           console.log('Hola', data);

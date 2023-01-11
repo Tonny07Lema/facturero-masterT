@@ -4,6 +4,7 @@ import { ToastController } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
 import { ActualizarClientePage } from '../actualizar-cliente/actualizar-cliente.page';
 import { Cliente } from '../entidades';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listar-cliente',
@@ -16,6 +17,7 @@ export class ListarClientePage implements OnInit {
     private clienteService: ClienteService,
     private toastController: ToastController,
     private modalCtrl:ModalController,
+    private ruta: Router,
   ) { }
 
   ngOnInit() {
@@ -58,12 +60,17 @@ export class ListarClientePage implements OnInit {
   }
   async mostrarMensaje(mensaje: any) {
     const toast = await this.toastController.create({
-      position: 'top',
+      position: 'bottom',
       message: mensaje,
       duration: 3000
     });
     toast.present();
   }
-
+  cerrarSesion(){
+    // IdUser
+    sessionStorage.getItem('IdUser');
+    sessionStorage.removeItem('IdUser');
+    this.ruta.navigate(['/'])
+  }
 
 }

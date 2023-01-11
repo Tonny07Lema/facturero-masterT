@@ -27,6 +27,12 @@
                 Factura
               </ion-label>
             </ion-item>
+            <ion-item (click)="cerrarSesion()">
+              <ion-icon slot="start" [name]="'exit'"></ion-icon>
+              <ion-label>
+                Cerrar Sesion
+              </ion-label>
+            </ion-item>
           </ion-menu-toggle>
         </ion-list>
       </ion-content>
@@ -52,16 +58,10 @@
           <ion-grid>
             <ion-row>
               <ion-col>
-                <div class="ion-activatable ripple-parent custom-parent" (click)="actualizarServicio(ser.id)">
-                  Editar
-                  <ion-ripple-effect></ion-ripple-effect>
-                </div>
+                <ion-icon class="Editar" name="pencil" (click)="actualizarServicio(ser)" color="primary"></ion-icon>
               </ion-col>
               <ion-col>
-                <div class="ion-activatable ripple-parent custom-ripple" (click)="eliminarServicio(ser.id)">
-                  Eliminar
-                  <ion-ripple-effect></ion-ripple-effect>
-                </div>
+                <ion-icon class="Editar" name="trash" (click)="eliminarServicio(ser.id)" color="danger"></ion-icon>
               </ion-col>
             </ion-row>
             <ion-row>
@@ -74,8 +74,16 @@
         </ion-card>
         <ion-fab slot="fixed" vertical="bottom" horizontal="end" style="bottom: 59px;">
           <ion-fab-button>
-            <ion-icon name="add" [routerDirection]="'root'" [routerLink]="'/registrar-servicio'"></ion-icon>
+            <ion-icon name="chevron-up-circle"></ion-icon>
           </ion-fab-button>
+          <ion-fab-list side="top">
+            <ion-fab-button>
+              <ion-icon name="bag" [routerDirection]="'root'" [routerLink]="'/registrar-servicio'"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-button>
+              <ion-icon name="cart" [routerDirection]="'root'" [routerLink]="'/registrarfactura'"></ion-icon>
+            </ion-fab-button>
+          </ion-fab-list>
         </ion-fab>
       </ion-content>
     </div>

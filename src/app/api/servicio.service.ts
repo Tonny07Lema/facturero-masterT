@@ -46,10 +46,10 @@ export class ServicioService {
       this.detalles[index].cantidad = this.detalles[index].cantidad + 1
       this.detalles[index].total = this.detalles[index].cantidad * this.detalles[index].precioUnitario
     }
-
     if (detalle.cantidad == 0) {
       this.detalles.splice(index, 1);
     }
+    detalle.cantidad=1;
   }
   borrar(){
     this.detalles=[];

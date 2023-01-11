@@ -2,7 +2,10 @@ ion-card.Diseño {
     border-radius: 22px;
     box-shadow: rgb(34 36 40) 0px 3px 1px -2px, rgb(34 36 40) 0px 3px 1px -2px, rgb(34 36 40) 0px 0px 9px 1px;
 }
-
+ion-icon.Editar{
+    font-size: 21px;
+    padding-inline-start: var(--ion-grid-column-padding-xs, var(--ion-grid-column-padding, 37px))
+}
 .wrapper {
     display: flex;
     flex-wrap: wrap;

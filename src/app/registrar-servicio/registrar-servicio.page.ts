@@ -37,7 +37,7 @@ export class RegistrarServicioPage implements OnInit {
         (data) =>{
           console.log('Hola',data);
           this.mostrarMensaje('Servicio creado con exito')
-          this.router.navigate(['/servicio-d'])    
+          this.router.navigate(['/listar-servicio'])    
         },
         (error)=> {
           console.log('Ocurrio un error',error.error)

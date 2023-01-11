@@ -37,7 +37,7 @@ export class RegistarClientePage implements OnInit {
         (data) =>{
           console.log('Hola',data);
           this.mostrarMensaje('Cliente creado con exito')
-          this.router.navigate(['/cliente-d'])    
+          this.router.navigate(['/listar-cliente'])    
         },
         (error)=> {
           console.log('Ocurrio un error',error.error)

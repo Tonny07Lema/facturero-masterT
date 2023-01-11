@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FacturaService } from '../api/factura.service';
-import { ToastController } from '@ionic/angular';
+import { ModalController, ToastController } from '@ionic/angular';
+import { Factura } from '../entidades';
+import { Router } from '@angular/router';
+import { DetalleFacturaPage } from '../detalle-factura/detalle-factura.page';
 
 
 @Component({
@@ -14,6 +17,8 @@ export class ListarFacturaAnuladaPage implements OnInit {
   constructor(
     private facturaService: FacturaService,
     private toastController: ToastController,
+    private modalCtrl: ModalController,
+    private ruta: Router,
   ) { }
 
   ngOnInit() {
@@ -26,5 +31,14 @@ export class ListarFacturaAnuladaPage implements OnInit {
       this.listaFactura = data;
     })
   }
-
+  async detallefac(factura:Factura) {
+    const modal = await this.modalCtrl.create({
+      component: DetalleFacturaPage,
+      componentProps: {
+        'detalle': factura,
+      }
+    });
+    await modal.present();
+    await modal.onDidDismiss();
+  }
 }

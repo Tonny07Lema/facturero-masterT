@@ -4,6 +4,7 @@ import { ToastController } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
 import { Detalle, Servicio } from 'src/app/entidades';
 import { ActualizarServicioPage } from '../actualizar-servicio/actualizar-servicio.page';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listar-servicio',
@@ -20,6 +21,7 @@ export class ListarServicioPage implements OnInit {
     detalle.precioUnitario = service.precioUnitario
     detalle.total = service.precioUnitario
     detalle.servicioId = service.id
+    detalle.nombreProducto = service.descripcion
     this.mostrarMensaje("Servicio Agregado a la factura");
     this.servicioService.agregarAlCarrito(detalle);
   }
@@ -28,6 +30,7 @@ export class ListarServicioPage implements OnInit {
     private servicioService: ServicioService,
     private toastController: ToastController,
     private modalCtrl:ModalController,
+    private ruta: Router,
   ) { }
 
   ngOnInit() {
@@ -47,11 +50,11 @@ export class ListarServicioPage implements OnInit {
       this.mostrarMensaje('Servicio Eliminado')
     })
   }
-  async actualizarServicio(id:number) {
+  async actualizarServicio(servicio:Servicio) {
     const modal = await this.modalCtrl.create({
       component:ActualizarServicioPage,
       componentProps:{
-        'idCliente': id,
+        'servicioUp': servicio,
       }
     });
     await modal.present();
@@ -60,11 +63,16 @@ export class ListarServicioPage implements OnInit {
   }
   async mostrarMensaje(mensaje: any) {
     const toast = await this.toastController.create({
-      position: 'top',
+      position: 'bottom',
       message: mensaje,
       duration: 3000
     });
     toast.present();
   }
-
+  cerrarSesion(){
+    // IdUser
+    sessionStorage.getItem('IdUser');
+    sessionStorage.removeItem('IdUser');
+    this.ruta.navigate(['/'])
+  }
 }

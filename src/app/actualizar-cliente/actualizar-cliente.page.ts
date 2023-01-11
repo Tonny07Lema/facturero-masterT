@@ -16,7 +16,7 @@ export class ActualizarClientePage implements OnInit {
   @Input() clienteUpdate: any;
   clienteUp = new Cliente;
   clienteUpdateForm : FormGroup = this.fb.group({    
-   'tipoIdentificacion': ['', [Validators.required]],
+    'tipoIdentificacion': ['', [Validators.required]],
     'identificacionNumero' : ['', [Validators.required]],
     'nombre': ['', [Validators.required]],
     'direccion': ['', [Validators.required]],

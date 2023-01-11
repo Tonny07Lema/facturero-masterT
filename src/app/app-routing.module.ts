@@ -79,6 +79,10 @@ const routes: Routes = [
     path: 'listar-factura-anulada',
     loadChildren: () => import('./listar-factura-anulada/listar-factura-anulada.module').then( m => m.ListarFacturaAnuladaPageModule)
   },
+  {
+    path: 'detalle-factura',
+    loadChildren: () => import('./detalle-factura/detalle-factura.module').then( m => m.DetalleFacturaPageModule)
+  },
 ];
 
 @NgModule({

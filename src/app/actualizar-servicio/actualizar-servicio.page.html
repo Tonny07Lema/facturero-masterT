@@ -13,12 +13,12 @@
             <ion-item>
               <ion-icon name="reader"></ion-icon>
               <ion-input formControlName="descripcion" id="descripcion" type="text" required
-                placeholder="Descripcion del Servicio*"></ion-input>
+                placeholder="Descripcion del Servicio*" [(ngModel)]="servicioUpdate.descripcion"></ion-input>
             </ion-item>
             <br />
             <ion-item>
               <ion-icon name="cash"></ion-icon>
-              <ion-input formControlName="precioUnitario" id="precioUnitario" type="number" step="0.01" required placeholder="Precio Unitario *"></ion-input>
+              <ion-input formControlName="precioUnitario" id="precioUnitario" type="number" step="0.01" required placeholder="Precio Unitario *" [(ngModel)]="servicioUpdate.precioUnitario"></ion-input>
             </ion-item>
           </ion-list>
         </ion-col>

@@ -36,13 +36,13 @@
             <ion-grid>
             <ion-row>
               <ion-col>Cant.</ion-col>
-              <ion-col>Id.P</ion-col>
+              <ion-col>Nombre</ion-col>
               <ion-col>P.Unitario</ion-col>
-              <ion-col>V.Total</ion-col>
+              <ion-col>Total</ion-col>
             </ion-row>
             <ion-row *ngFor="let productos of detalles">
               <ion-col>{{productos.cantidad}}</ion-col>
-              <ion-col>{{productos.servicioId}}</ion-col>
+              <ion-col>{{productos.nombreProducto}}</ion-col>
               <ion-col>{{productos.precioUnitario}}</ion-col>
               <ion-col>{{productos.total}}</ion-col>
             </ion-row>

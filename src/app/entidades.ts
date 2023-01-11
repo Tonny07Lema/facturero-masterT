@@ -25,6 +25,8 @@ export class Detalle {
     precioUnitario!: number;
     total!: number;
     servicioId!: number;
+    nombreProducto?:string;
+
 }
 
 export class Factura {

@@ -27,6 +27,12 @@
                 Factura
               </ion-label>
             </ion-item>
+            <ion-item (click)="cerrarSesion()">
+              <ion-icon slot="start" [name]="'exit'"></ion-icon>
+              <ion-label>
+                Cerrar Sesion
+              </ion-label>
+            </ion-item>
           </ion-menu-toggle>
         </ion-list>
       </ion-content>
@@ -63,10 +69,10 @@
           <ion-grid>
             <ion-row>
               <ion-col>
-                <div class="ion-activatable ripple-parent custom-ripple" (click)="eliminarFactura(fac.id)">
-                  Anular
-                  <ion-ripple-effect></ion-ripple-effect>
-                </div>
+                <ion-icon class="Editar" name="eye" (click)="detallefac(fac)" color="primary"></ion-icon>
+              </ion-col>
+              <ion-col>
+                <ion-icon class="Editar" name="trash" (click)="eliminarFactura(fac.id)" color="danger"></ion-icon>
               </ion-col>
             </ion-row>
           </ion-grid>
@@ -75,8 +81,19 @@
 
         <ion-fab slot="fixed" vertical="bottom" horizontal="end" style="bottom: 59px;">
           <ion-fab-button>
-            <ion-icon name="add" [routerDirection]="'root'" [routerLink]="'/registrarfactura'"></ion-icon>
+            <ion-icon name="chevron-up-circle"></ion-icon>
           </ion-fab-button>
+          <ion-fab-list side="top">
+            <ion-fab-button>
+              <ion-icon name="cart" [routerDirection]="'root'" [routerLink]="'/registrarfactura'"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-button>
+              <ion-icon name="layers" [routerDirection]="'root'" [routerLink]="'/listar-factura-emitidas'"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-button>
+              <ion-icon name="alert" [routerDirection]="'root'" [routerLink]="'/listar-factura-anulada'"></ion-icon>
+            </ion-fab-button>
+          </ion-fab-list>
         </ion-fab>
 
       </ion-content>

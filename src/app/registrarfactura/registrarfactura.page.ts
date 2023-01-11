@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastController,ModalController } from '@ionic/angular';
 import { Detalle} from 'src/app/entidades';
 import { ClienteService } from '../api/cliente.service';
@@ -26,7 +27,8 @@ export class RegistrarfacturaPage implements OnInit {
     private clienteService: ClienteService,
     private modalCtrl: ModalController,
     private faturaService:FacturaService,
-    private servicioSevice:ServicioService,
+    private servicioSevice:ServicioService, 
+    private router :Router,
     
   ) { }
 
@@ -106,6 +108,7 @@ export class RegistrarfacturaPage implements OnInit {
         (data) => {
           console.log('Hola', data);
           this.mostrarMensaje("Factura Creada");
+          this.router.navigate(['/listar-factura'])  
           this.modalCtrl.dismiss();
           this.borrar();
         }, (error) => {
@@ -120,7 +123,7 @@ export class RegistrarfacturaPage implements OnInit {
   }
   async mostrarMensaje(mensaje :any){
     const toast = await this.toastController.create({
-      position : 'top',
+      position : 'bottom',
       message : mensaje,
       duration : 3000
     });

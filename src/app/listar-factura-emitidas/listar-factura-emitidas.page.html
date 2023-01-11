@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title>Facturas Emitidas</ion-title>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="factura-d"></ion-back-button>
+      <ion-back-button defaultHref="listar-factura"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -25,5 +25,12 @@
       <ion-icon name="cash"></ion-icon>
       Total : {{fac.total}}
     </ion-card-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-icon class="Editar" name="eye" (click)="detallefac(fac)" color="primary"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-card>
 </ion-content>
